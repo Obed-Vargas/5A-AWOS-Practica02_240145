@@ -1,90 +1,238 @@
-html{
+html {
     box-sizing: border-box;
     font-size: 62.5%;
 }
 
-body{
+body {
     font-size: 1.6rem;
-    font-family: 'lato','sans-serif';
-    background-color: rgb(125, 195, 144);
+    font-family: 'Lato', sans-serif;
+    background: linear-gradient(135deg, #e8d5ff, #c7a4ff, #a29bfe);
+    color: #4a4a4a;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    animation: fadeIn 1s ease-in-out;
 }
-/*Estas propiedades son el antes y el despues de box sizing */
-*,*:before,*::after{
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Estas propiedades son el antes y el después de box-sizing */
+*, *:before, *::after {
     box-sizing: inherit;
 }
 
-header{
-    padding: 3rem 0;
-}
-
-header h1{
+header {
+    padding: 4rem 2rem;
     text-align: center;
-    color: rgb(10, 20, 11);
-    font-size: 6rem;
-}
-
-header p{
-    color: rgb(210, 74, 74);
-    text-align: center;
-    font-size: 3.2 rem;
-
-}
-
-header p a{
-    text-decoration: none ;
-    color: rgb(217, 255, 0);
-}
-
-.DOM{
-    max-width: 120rem;
-    margin: 0  auto;
-}
-
-.DOM h2{
-    color: rgb(93, 32, 32);
-    text-align: center;
-}
-
-.DOM nav a{
-    color: aliceblue;
-    font-size: 20 px;
-    text-decoration: none;
-    margin-right: 10px;
-}
-
-.DOM p{
-    color: blue;
-    font-size: 20px;
-}
-
-.DOM #formulario{
-    max-width: 500px;
-    margin: 0 auto;
-
-}
-
-.DOM #formulario input{
-    display:block;
-    width: 100%;
-    border: none;
-    margin-bottom: 2rem;
-    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 1rem;
+    margin: 3rem auto;
+    max-width: 85%;
+    box-shadow: 0 8px 32px rgba(108, 92, 231, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
 }
 
-.alerta{
-    padding: 1rem;
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(108, 92, 231, 0.1), rgba(162, 155, 254, 0.1));
+    z-index: -1;
+}
+
+header h1 {
+    color: #6c5ce7;
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideInFromTop 1s ease-out;
+}
+
+@keyframes slideInFromTop {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+header p {
+    color: #a29bfe;
+    font-size: 2.2rem;
+    margin: 0;
+    animation: slideInFromBottom 1s ease-out 0.5s both;
+}
+
+@keyframes slideInFromBottom {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+header p a {
+    text-decoration: none;
+    color: #9c88ff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+header p a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #6c5ce7;
+    transition: width 0.3s ease;
+}
+
+header p a:hover::after {
+    width: 100%;
+}
+
+header p a:hover {
+    color: #6c5ce7;
+    transform: scale(1.05);
+}
+
+.DOM {
+    max-width: 110rem;
+    margin: 0 auto;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.DOM h2 {
+    color: #6c5ce7;
     text-align: center;
-    color: azure;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.DOM nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.DOM nav a {
+    color: #ffffff;
+    font-size: 1.8rem;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #a29bfe, #9c88ff);
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(162, 155, 254, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.DOM nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.DOM nav a:hover::before {
+    left: 100%;
+}
+
+.DOM nav a:hover {
+    background: linear-gradient(45deg, #9c88ff, #6c5ce7);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(162, 155, 254, 0.4);
+}
+
+.DOM p {
+    color: #7c4dff;
+    font-size: 1.8rem;
+    line-height: 1.8;
+    max-width: 80rem;
+    text-align: center;
+    animation: fadeInUp 1s ease-out 1s both;
+}
+
+.DOM #formulario {
+    max-width: 50rem;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
+    animation: slideInFromLeft 1s ease-out 1.2s both;
+}
+
+@keyframes slideInFromLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.DOM #formulario input {
+    display: block;
+    width: 100%;
+    border: 2px solid #e0e0e0;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+    background: #f9f9f9;
+}
+
+.DOM #formulario input:focus {
+    border-color: #a29bfe;
+    box-shadow: 0 0 10px rgba(162, 155, 254, 0.5);
+    background: #ffffff;
+    transform: scale(1.02);
+}
+
+.alerta {
+    padding: 1.5rem;
+    text-align: center;
+    color: #ffffff;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+    font-weight: bold;
+    animation: bounceIn 0.6s ease-out;
 }
 
-.alerta.error{
-    background-color: red;
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
 }
 
-.alerta.exito{
-    background-color: green;
+.alerta.error {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
 }
-    
+
+.alerta.exito {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
