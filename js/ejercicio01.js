@@ -87,7 +87,6 @@ function calcularEdad(fecha_nacimiento) {
 }
 
 //interpoblacion de datos
-
 //${}`
 misApellidos = "Vargas Luna";
 console.log(
