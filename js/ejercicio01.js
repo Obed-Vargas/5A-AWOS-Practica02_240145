@@ -87,8 +87,7 @@ function calcularEdad(fecha_nacimiento) {
 }
 
 //interpoblacion de datos 
- 
-//${}`
+
 misApellidos = "Vargas Luna"
 console.log(`Hola mi nombre es ${miNombre} mis apellidos son ${misApellidos} y tengo ${miEdad} años de edad.`);
 
