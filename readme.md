@@ -21,5 +21,6 @@ de ramnas en el contexto de control de versiones y desarrollo colaborativo utili
 
 |No.|Descripcion|Potenciador|Estatus|
 |---|---|---|---|
-|1|Declaracion de variables|1|finalizada|
-|2|Tipo de datos|1|finalizada|
+|1|Declaracion de variables|1|finalizado|
+|2|Tipo de datos|1|finalizado|
+|3|funciones| 7|finalizado|
