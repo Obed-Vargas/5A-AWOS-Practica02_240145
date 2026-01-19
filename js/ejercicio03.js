@@ -143,10 +143,61 @@ console.warn("5. funciones anonimas, sin parametros");
 
 console.log("test 1 - fecha del ultimo acceso es igual a la fecha de hoy")
 console.log(`la fecha del ultimo acceso es: ${lastLogin}`);
-console.log (`el usuario logeado es:  ${isNewUser?"Nuevo usuario":"Usuario antiguo"}`);
+console.log(`el usuario logeado es:  ${isNewUser ? "Nuevo usuario" : "Usuario antiguo"}`);
 
 console.log("------------------------------------------------------")
 lastLogin = new Date("2025/12/31");
 console.log("test 2 - fecha del ultimo acceso es diferente a la fecha de hoy")
 console.log(`la fecha del ultimo acceso es: ${lastLogin}`);
-console.log (`el usuario logeado es:  ${isNewUser?"Nuevo usuario":"Usuario "}`);
+console.log(`el usuario logeado es:  ${isNewUser ? "Nuevo usuario" : "Usuario "}`);
+
+
+/*6. funciones anonimas con parametros (version arrow o lambda) */
+
+const sumar = (a, b) => {
+    let resultado = a + b;
+    return resultado;
+}
+
+console.warn("6. funciones anonimas con parametros ")
+console.log(`El resultado de la suma 15 + 83 es: ${sumar(15, 83)}`);
+
+/*Cuando la funcion anonima tiene solo una liena de operacion se puede usar una version 
+simplificada que no usa {} llaves, ni la palabra reservada return */
+
+const multiplicar = (a, b) => a * b;
+console.log(`el resultado de la multipliacion 15 * 125 es: ${multiplicar(15, 125)}`)
+
+
+/*7. funciones CallBack (Regreso de llamado) */
+console.warn("7. funciones CallBack (Regreso de llamado)")
+
+const recoveryPassword = function (email, callback) {
+    //generamos el codigo a enviara l usuario
+    const recoveryCode = Math.floor(1000000 + Math.random() * 900000)
+
+    console.log(`
+        ----------------------------------------------------
+        Solicitud de recuperacion recbida
+        correo del usuario solicitante: ${email}
+        generando el codigo de recuperacion...
+        codigo de segurdad generado: ${recoveryCode}
+        enviando el correo al usuario...
+        correo enviado a: ${email}, con el codigo de seguridad: ${recoveryCode}
+        ----------------------------------------------------`);
+
+//definiendo la respesta del sistema 
+const response ={
+    status: "ok",
+    message: "codigo derecuepracion enviado satisfactoriamente"
+};
+callback(response); 
+};
+
+//invocacion de la funcion callback
+recoveryPassword("obed@gmail.com",
+    function(systemResponse) {
+        console.log("respuesta del sistema: ");
+        console.log(systemResponse.message);
+    }
+);
